@@ -1,0 +1,35 @@
+# General
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+*.swo
+
+# Environment variables
+.env
+
+# Django-specific
+db.sqlite3
+*.log
+/static/
+media/
+
+# Migrations
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Virtual environment
+venv/
+env/
+
+# IDE-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System-specific files
+.DS_Store
+Thumbs.db
+*.bak

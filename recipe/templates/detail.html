@@ -1,0 +1,95 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+  <div class="max-w-2xl mx-auto my-10 p-8 bg-gradient-to-r from-yellow-100 via-orange-100 to-red-100 shadow-lg rounded-lg overflow-hidden">
+    <div>
+      <img src="{{recipe.recipe_img.url}}" class="h-52 w-full px-2 rounded-md" alt="">
+    </div>
+    
+    <!-- Recipe Title -->
+    <h2 class="text-3xl font-extrabold text-orange-800 m-4 ml-0">{{ recipe.title }}</h2>
+
+    <!-- Recipe Description -->
+    <p class="text-lg text-gray-700 mb-6 leading-relaxed">{{ recipe.desc }}</p>
+
+    <!-- Ingredients Section -->
+    <div class="mb-6">
+      <h3 class="text-xl font-semibold text-orange-700 mb-3">Ingredients:</h3>
+      <ul class="list-disc list-inside text-gray-800 space-y-1">
+        {% for ingredient in ingredients_list %}
+          <li class="ml-4">{{ ingredient }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Instructions Section -->
+    <div class="mb-6">
+      <h3 class="text-xl font-semibold text-orange-700 mb-3">Instructions:</h3>
+      <ul class="list-decimal list-inside text-gray-800 space-y-1">
+        {% for instructions in instructions_list %}
+          <li class="ml-4">{{ instructions }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <!-- Recipe Footer Information -->
+    <div class="border-t border-orange-300 pt-4 mt-1 text-sm text-gray-600">
+      <p class="flex items-center justify-between">
+        <span>By: <span class="font-medium text-orange-800">{{ recipe.author }}</span></span>
+        <span>Posted on: <span class="font-medium text-orange-800">September 26, 2024</span></span>
+      </p>
+    </div> 
+    </a>
+    <!-- comments -->
+    <div>
+      <p>Leave your comments here!</p>
+      <form action="{% url 'comment' recipe.id %}" method="post" class="space-y-6" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ cform.as_p }}
+        <button type="submit" class="w-full py-2 mt-4 text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition duration-300">
+            Comment
+        </button>
+      </form>
+    </div>
+
+  <!-- Container to center content vertically -->
+<div class="flex flex-col items-center justify-center min-h-screen text-center">
+  <!-- Comments Section -->
+  <div class="bg-white shadow-md rounded-lg p-6 w-3/4 max-w-md">
+    <h2 class="text-2xl font-bold mb-4">Comments</h2>
+    {% if comments %}
+        <ul class="list-none">
+            {% for comment in comments %}
+                <li class="mb-2">
+                    <span class="text-black-500 font-bold">{{ comment.content }}</span> - 
+                    <span class="font-semibold">{{ comment.user.username }}</span><br>
+                    <span>{{ comment.date_posted }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-gray-600">No Comments on this recipe yet</p>
+    {% endif %}
+  </div>
+</div>
+  
+
+  {% comment %} <!-- Ratings Section -->
+  <div class="bg-white shadow-md rounded-lg p-6 w-3/4 max-w-md">
+    <h2 class="text-2xl font-bold mb-4">Ratings</h2>
+    {% if ratings %}
+      <ul class="list-none">
+        {% for rating in ratings %}
+          <li class="mb-2">
+            <span class="font-semibold">User: {{ rating.user_id.username }}</span> - 
+            <span class="text-yellow-500 font-bold">{{ rating.rate }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-gray-600">No ratings for this recipe yet.</p>
+    {% endif %}
+  </div> {% endcomment %}
+</div>
+
+{% endblock content %}

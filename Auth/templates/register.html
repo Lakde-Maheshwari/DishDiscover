@@ -1,0 +1,56 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+<form action="{% url 'register' %}" method="post" class="bg-gray-600 p-8 rounded-lg shadow-md max-w-lg mx-auto mt-20 space-y-4 mb-8">
+    {% csrf_token %}
+    <div>
+        <label for="Username" class="block  font-semibold mb-2 text-white">Username</label>
+        <input type="text" id="Username" name="Username" placeholder="Enter your Username" 
+               class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    
+    <div>
+        <label for="Email" class="block text-white font-semibold mb-2">Email</label>
+        <input type="email" id="Email" name="Email" placeholder="Enter your Email" 
+               class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    
+    <div>
+        <label for="fname" class="block text-white font-semibold mb-2">First Name</label>
+        <input type="text" id="fname" name="fname" placeholder="Enter your First Name" 
+               class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    
+    <div>
+        <label for="lname" class="block text-white font-semibold mb-2">Last Name</label>
+        <input type="text" id="lname" name="lname" placeholder="Enter your Last Name" 
+               class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    
+    <div>
+        <label for="pass1" class="block text-white font-semibold mb-2">Password</label>
+        <input type="password" id="pass1" name="pass1" placeholder="Create your password" 
+               class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+    
+    <div>
+        <label for="cpass" class="block text-white font-semibold mb-2">Confirm Password</label>
+        <input type="password" id="cpass" name="cpass" placeholder="Confirm your password" 
+               class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+
+    <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+        Register
+    </button>
+
+    <p class="text-white">Already have an account please Login here</p>
+    <button><a href="{% url 'login' %}" class="w-full bg-blue-500 text-white font-bold py-2 px-2 rounded-lg hover:bg-blue-600 transition duration-300">Login</a></button>
+
+    <button><a href="{% url 'home' %}" class="w-full bg-yellow-300 text-black font-bold py-2 px-2 rounded-lg hover:bg-yellow-400 transition duration-300">Back to home</a></button>
+
+</form>
+
+
+
+{% endblock content %}

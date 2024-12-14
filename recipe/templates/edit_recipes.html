@@ -1,0 +1,31 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<div class="container mx-auto py-10">
+    <p class="text-4xl font-bold text-center text-gray-800 mb-6">Welcome to Our First Django App!</p>
+    
+    <div class="max-w-lg mx-auto bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-5">
+            {% if form.instance.pk %} 
+                Edit Tweet 
+            {% else %} 
+                Create Tweet 
+            {% endif %}
+        </h2>
+
+        <form enctype="multipart/form-data" method="post" class="space-y-6">
+            {% csrf_token %}
+            <div class="space-y-4">
+                {{ form.as_p }}
+            </div>
+            <button class="w-full p-3 rounded-lg bg-cyan-700 text-white hover:bg-cyan-900 transition duration-300">
+                Submit
+            </button>
+        </form>
+
+        <a href="{% url 'home' %}" class="block w-full text-center mt-4 p-3 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 transition duration-300">
+            Return to Home
+        </a>
+    </div>
+</div>
+{% endblock content %}

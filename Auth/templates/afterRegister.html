@@ -1,0 +1,15 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md max-w-md mx-auto text-center">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Registration Successful!</h2>
+        <p class="text-gray-600 mb-6">You have been registered successfully. You can now log in to your account.</p>
+        <button class="w-full">
+            <a href="{% url 'login' %}" class="bg-blue-500 text-white font-bold p-2 rounded-lg hover:bg-blue-600 transition duration-300">
+                Login
+            </a>
+        </button>
+    </div>
+</div>
+{% endblock content %}

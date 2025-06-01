@@ -1,7 +1,5 @@
 {% load static tailwind_tags %}
-
 {% load static %}
-
 {% comment %} common file used everywhere {% endcomment %}
 
 <!DOCTYPE html>
@@ -41,24 +39,26 @@
                 Home
                 <i class="fa-solid fa-house mx-1 py-2"></i>
             </a>
-            <a href="{% url 'login' %}" class="text-lg text-gray-800 bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded-lg transition duration-300 flex items-center">
-                Login
-                <i class="fa-solid fa-right-to-bracket mx-1 py-2"></i>
-            </a>
-            <a href="{% url 'logout' %}" class="text-lg text-gray-800 bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded-lg transition duration-300 flex items-center">
-                Logout
-            </a>
-            <a href="{% url 'register' %}" class="text-lg text-gray-800 bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded-lg transition duration-300 flex items-center">
-                <svg class="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h1m4 4h-1v-4h1M5 16h-.5a2 2 0 00-2 2v2h16v-2a2 2 0 00-2-2H5zm8-7h-2a2 2 0 00-2 2v2h4V11a2 2 0 00-2-2zM7 8h10a2 2 0 012 2v10H3V10a2 2 0 012-2z" />
-                </svg>
-                Register
-            </a>
+
             {% if user.is_authenticated %}
-            <a href="{% url 'profile' user.id %}" class="text-lg text-gray-800 bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded-lg transition duration-300 flex items-center">
-                <i class="fa-solid fa-user m-1"></i>
-                Profile
-            </a>
+                <a href="{% url 'logout' %}" class="text-lg text-gray-800 bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded-lg transition duration-300 flex items-center">
+                    Logout
+                </a>
+                <a href="{% url 'profile' user.id %}" class="text-lg text-gray-800 bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded-lg transition duration-300 flex items-center">
+                    <i class="fa-solid fa-user m-1"></i>
+                    Profile
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}" class="text-lg text-gray-800 bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded-lg transition duration-300 flex items-center">
+                    Login
+                    <i class="fa-solid fa-right-to-bracket mx-1 py-2"></i>
+                </a>
+                <a href="{% url 'register' %}" class="text-lg text-gray-800 bg-yellow-300 hover:bg-yellow-400 py-2 px-4 rounded-lg transition duration-300 flex items-center">
+                    <svg class="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h1m4 4h-1v-4h1M5 16h-.5a2 2 0 00-2 2v2h16v-2a2 2 0 00-2-2H5zm8-7h-2a2 2 0 00-2 2v2h4V11a2 2 0 00-2-2zM7 8h10a2 2 0 012 2v10H3V10a2 2 0 012-2z" />
+                    </svg>
+                    Register
+                </a>
             {% endif %}
         </div>
     </nav>
@@ -66,7 +66,8 @@
 
 {% block content %} 
 {% endblock content %}
-{% comment %} Footer section {% endcomment %}
+
+<!-- Footer section -->
 <footer class="bg-blue-100 text-gray-800 py-6 mt-6">
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap justify-between">
@@ -99,7 +100,6 @@
         </div>
     </div>
 </footer>
-
 
 </body>
 </html>

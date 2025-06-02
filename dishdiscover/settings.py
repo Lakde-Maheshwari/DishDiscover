@@ -63,7 +63,7 @@ INTERNAL_IPS = ['127.0.0.1']
 NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = 'https://dishdiscover-2-media.onrender.com/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -2,7 +2,10 @@ import os # at the top of settings.py
 from .info import *
 from pathlib import Path
 import dj_database_url
-
+import dotenv
+# Load environment variables from .env file
+dotenv.load_dotenv()
+# SECURITY WARNING: don't run with debug turned on in production!
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -16,12 +19,21 @@ EMAIL_PORT = EMAIL_PORT
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY') 
 if not SECRET_KEY:
     raise Exception("SECRET_KEY not found in environment variables!")
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 # SECURITY WARNING: don't run with debug turned on in production!
+# import sys
+
+# print("DATABASE_URL:", os.environ.get('DATABASE_URL'), file=sys.stderr)
+# print("SECRET_KEY:", SECRET_KEY, file=sys.stderr)
+# print("DEBUG:", DEBUG, file=sys.stderr)
+
+if not os.environ.get('DATABASE_URL'):
+    raise Exception("DATABASE_URL environment variable is missing!")
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -55,13 +67,14 @@ MEDIA_URL = '/media/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'dishdiscover.urls'

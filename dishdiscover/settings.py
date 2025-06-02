@@ -35,7 +35,7 @@ if not os.environ.get('DATABASE_URL'):
     raise Exception("DATABASE_URL environment variable is missing!")
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['dishdiscover.onrender.com']
 
 LOGIN_URL = 'Auth/login'
 LOGIN_REDIRECT_URL = 'profile/' 
@@ -152,7 +152,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

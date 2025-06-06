@@ -2,12 +2,14 @@ import os # at the top of settings.py
 from .info import *
 from pathlib import Path
 import dj_database_url
+import django_heroku
 import dotenv
+
 # Load environment variables from .env file
 dotenv.load_dotenv()
 # SECURITY WARNING: don't run with debug turned on in production!
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 EMAIL_USE_TLS = EMAIL_USE_TLS
 EMAIL_HOST = EMAIL_HOST
@@ -35,7 +37,7 @@ if not os.environ.get('DATABASE_URL'):
     raise Exception("DATABASE_URL environment variable is missing!")
 
 
-ALLOWED_HOSTS = ['dishdiscover-3.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = 'Auth/login'
 LOGIN_REDIRECT_URL = 'profile/' 
@@ -63,7 +65,7 @@ INTERNAL_IPS = ['127.0.0.1']
 NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'https://dishdiscover-2-media.onrender.com/images/'
+MEDIA_URL = '/media/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -94,6 +96,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 
 
@@ -154,8 +157,11 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+django_heroku.settings(locals())
+

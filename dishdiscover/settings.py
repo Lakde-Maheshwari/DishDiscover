@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'recipe',
     'Auth',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 TAILWIND_APP_NAME = 'theme' # This is the name of the app that will be used to generate the tailwind files
@@ -64,7 +66,6 @@ INTERNAL_IPS = ['127.0.0.1']
 
 NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 MIDDLEWARE = [
@@ -149,6 +150,15 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+# default file storage for media files from clodinary 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+}
+
+
 USE_TZ = True
 
 
@@ -163,5 +173,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-django_heroku.settings(locals())
+
+
 

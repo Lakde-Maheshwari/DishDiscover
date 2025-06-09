@@ -37,7 +37,7 @@ if not os.environ.get('DATABASE_URL'):
     raise Exception("DATABASE_URL environment variable is missing!")
 
 
-ALLOWED_HOSTS = ['dishdiscover.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['dishdiscover-6.onrender.com', 'localhost', '127.0.0.1']
 
 
 LOGIN_URL = 'Auth/login'

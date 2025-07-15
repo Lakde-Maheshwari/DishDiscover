@@ -23,18 +23,19 @@ cd recipe-sharing-site
 
 2) Create Virtual Environment :
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
+On Windows: venv\Scripts\activate
 
 
-3) Install Dependencies :
+4) Install Dependencies :
 pip install -r requirements.txt
 
 
-4) Apply Migrations :
+5) Apply Migrations :
 python manage.py makemigrations
 python manage.py migrate
 
-5) Run the Server :
+6) Run the Server :
 python manage.py runserver
 Open and go to the browswer http://127.0.0.1:8000/
 

@@ -11,7 +11,7 @@ A simple and easy-to-use Django-based web app where users can share their favori
 
 # Tech Stack
 Backend: Django (Python)
-Frontend: HTML, CSS (Tailwind/Bootstrap)
+Frontend: HTML, CSS (Tailwind)
 Database: SQLite (default)
 Auth: Django built-in authentication system
 

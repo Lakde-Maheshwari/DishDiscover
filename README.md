@@ -17,13 +17,13 @@ Auth: Django built-in authentication system
 
 # Getting Started
 1) Clone the Repository :
-git clone https://github.com/yourusername/recipe-sharing-site.git
+git clone (https://github.com/Lakde-Maheshwari/DishDiscover.git)
 cd recipe-sharing-site
 
 
 2) Create Virtual Environment :
 python -m venv venv
-source venv/bin/activate
+on linux or mac: source venv/bin/activate
 On Windows: venv\Scripts\activate
 
 

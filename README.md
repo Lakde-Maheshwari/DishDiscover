@@ -18,7 +18,7 @@ Auth: Django built-in authentication system
 # Getting Started
 1) Clone the Repository :
 git clone (https://github.com/Lakde-Maheshwari/DishDiscover.git)
-cd recipe-sharing-site
+cd dishdiscover
 
 
 2) Create Virtual Environment :

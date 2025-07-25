@@ -2,7 +2,6 @@ import os # at the top of settings.py
 from .info import *
 from pathlib import Path
 import dj_database_url
-import django_heroku
 import dotenv
 
 # Load environment variables from .env file
@@ -37,7 +36,7 @@ if not os.environ.get('DATABASE_URL'):
     raise Exception("DATABASE_URL environment variable is missing!")
 
 
-ALLOWED_HOSTS = ['dishdiscover-6.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['dishdiscoverapp.onrender.com', 'localhost', '127.0.0.1']
 
 
 LOGIN_URL = 'Auth/login'
@@ -68,6 +67,7 @@ INTERNAL_IPS = ['127.0.0.1']
 NPM_BIN_PATH = "C:\\Program Files\\nodejs\\npm.cmd"
 
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

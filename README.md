@@ -6,9 +6,41 @@ Many food enthusiasts struggle to find a platform where they can share personal 
 
 # Features 
  User registration & login system : Django session Based authentication.
- <img width="787" height="863" alt="Register" src="https://github.com/user-attachments/assets/d0533683-f7c5-42a3-b4b5-48c8ddb23213" />
 
- Create, read, update, and delete (CRUD) recipes
+ Registeration : 
+ 
+ <img width="787" height="863" alt="Register" src="https://github.com/user-attachments/assets/d0533683-f7c5-42a3-b4b5-48c8ddb23213" />
+ Login :
+
+ <img width="867" height="647" alt="Login" src="https://github.com/user-attachments/assets/ac1c7812-e624-4b9e-83d1-59517c3954d8" />
+
+
+ Create, read, update, and delete (CRUD) recipes :
+ 
+ Create Post :
+ 
+ <img width="565" height="906" alt="PostRecipe" src="https://github.com/user-attachments/assets/07396597-718f-49c3-855f-b6880a8232fd" />
+
+ Edit : 
+ 
+ <img width="446" height="828" alt="Edit" src="https://github.com/user-attachments/assets/6ba92fa0-cdc5-4520-9840-49372f7424ce" />
+
+ Delete :
+
+ <img width="656" height="226" alt="Delete" src="https://github.com/user-attachments/assets/411dbe8c-1ef5-4301-8f87-8a325abeed4c" />
+
+Home Page : 
+
+<img width="1881" height="867" alt="Home" src="https://github.com/user-attachments/assets/c8081832-a770-4ada-bf5b-9d73158b29aa" />
+
+
+
+
+ 
+
+
+ 
+
  Upload images of your dishes
  Browse recipes shared by other users
  Comment and share cooking experiences

@@ -33,18 +33,20 @@ Home Page :
 
 <img width="1881" height="867" alt="Home" src="https://github.com/user-attachments/assets/c8081832-a770-4ada-bf5b-9d73158b29aa" />
 
+Profile :
+
+<img width="712" height="882" alt="Profile " src="https://github.com/user-attachments/assets/5d6b1e22-4706-4316-953e-ef3cf99ecb7c" />
+
+Comment and share cooking experiences :
+
+<img width="777" height="285" alt="Comments" src="https://github.com/user-attachments/assets/fd15b4e9-4668-4e58-8f32-efadbbe10f40" />
 
 
+View Comments :
+
+<img width="597" height="247" alt="Viewcomments" src="https://github.com/user-attachments/assets/01533807-a187-4d87-9989-87d6df8eb2d6" />
 
  
-
-
- 
-
- Upload images of your dishes
- Browse recipes shared by other users
- Comment and share cooking experiences
- Responsive UI using Tailwind CSS 
 
 # Tech Stack
 Backend: Django (Python)

@@ -4,7 +4,7 @@ from .models import Comments
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipes
-        fields = ['title', 'desc', 'Ingredients', 'instructions', 'recipe_img']
+        fields = ['title', 'desc', 'ingredients', 'instructions', 'recipe_img']
 
         labels = {
             'title': 'Recipe Title',
@@ -27,7 +27,7 @@ class RecipeForm(forms.ModelForm):
             'placeholder': 'Enter the recipe description',
         })
         
-        self.fields['Ingredients'].widget.attrs.update({
+        self.fields['ingredients'].widget.attrs.update({
             'class': 'border border-gray-300 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-green-500 h-24 resize-none',  # Set height and disable resizing
             'placeholder': 'List the ingredients',
             'rows': 2,  

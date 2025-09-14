@@ -151,6 +151,10 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+# print(os.environ.get('CLOUDINARY_CLOUD_NAME'))
+# print(os.environ.get('CLOUDINARY_API_KEY'))
+# print(os.environ.get('CLOUDINARY_API_SECRET'))
+
 # default file storage for media files from clodinary 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 CLOUDINARY_STORAGE = {
@@ -158,6 +162,7 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
+
 
 
 USE_TZ = True

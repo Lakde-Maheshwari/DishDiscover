@@ -7,22 +7,29 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from .forms import RecipeForm,CommentForm
 from .models import Recipes,Comments
+import cloudinary.uploader
 
 @login_required
 def createpost(request):
-    form = None
     if request.method == 'POST':
-        form = RecipeForm(request.POST,request.FILES)
+        form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             recipe = form.save(commit=False)
             recipe.author = request.user
+
+            # Save the image using the form; Cloudinary handles the upload
+            if 'recipe_img' in request.FILES:
+                recipe.recipe_img = request.FILES['recipe_img']
+
             recipe.save()
-            return redirect('postsuccess') 
+            return redirect('postsuccess')
         else:
-            print(form.errors) 
+            print(form.errors)
     else:
         form = RecipeForm()
+
     return render(request, 'createpost.html', {'form': form})
+
 
 def postsuccess(request):
     return render(request,'postsuccess.html')
@@ -34,7 +41,7 @@ def recipe_list(request):
 def recipe_detail(request,id):
     recipe = Recipes.objects.get(id=id)
     comments = Comments.objects.filter(recipe_id=id).order_by('-date_posted')
-    ingredients_list = recipe.Ingredients.split(',')
+    ingredients_list = recipe.ingredients.split(',')
     instructions_list = recipe.instructions.split(',')
 
     context = {

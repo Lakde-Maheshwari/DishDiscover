@@ -1,6 +1,9 @@
 # DishDiscover
 A simple and easy-to-use Django-based web app where users can share their favorite recipes and cooking experiences with others. Perfect for food lovers who want to explore and contribute delicious dishes.
 
+# Motivation 
+Many food enthusiasts struggle to find a platform where they can share personal recipes and cooking experiences in an organized, interactive way. DishDiscover solves this by letting users post, comment, and explore recipes easily.
+
 # Features 
  User registration & login system
  Create, read, update, and delete (CRUD) recipes
